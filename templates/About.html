@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/about.css') }}"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='node_modules/chart.js/dist/chart.umd.js') }}"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-straight/css/uicons-thin-straight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-thin-rounded/css/uicons-thin-rounded.css"
+    />
+    <title>About</title>
+  </head>
+
+  <body>
+    <section class="layout">
+      <div class="header">
+        <div
+          class="header-container"
+          style="display: flex; align-items: center"
+        >
+          <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+          <div class="logo-container-header">
+            <img
+              src="{{ url_for('static', filename='img/logo.png') }}"
+              class="img_logo"
+            />
+            <div class="text-content">
+              <div style="font-size: 2em; font-weight: 700">
+                <span style="color: #bacd92">RR</span
+                ><span style="color: #eabd3d">PP</span>
+              </div>
+              <div class="subtitle">Navigating Prices, Securing Futures</div>
+            </div>
+          </div>
+        </div>
+        <div id="mySidenav" class="sidenav">
+          <a href="{{ url_for('index') }}" class="nav-link home">
+            <span class="icon"
+              ><img src="{{ url_for('static', filename='img/home.png') }}"
+            /></span>
+            Home
+          </a>
+          <a href="{{ url_for('pricing') }}" class="nav-link pricing">
+            <span class="icon"
+              ><img
+                src="{{ url_for('static', filename='img/peso_symbol.png') }}"
+            /></span>
+            Pricing
+          </a>
+          <a href="{{ url_for('about') }}" class="nav-link about active">
+            <span class="icon"
+              ><img src="{{ url_for('static', filename='img/about.png') }}"
+            /></span>
+            About
+          </a>
+        </div>
+      </div>
+      <div class="leftSide">
+        <nav class="menu">
+          <div class="logo-container">
+            <img
+              src="{{ url_for('static', filename='img/logo.png') }}"
+              class="img_logo"
+            />
+            <div class="text-content">
+              <div class="text-logo">
+                <span style="color: #bacd92">RR</span
+                ><span style="color: #eabd3d">PP</span>
+              </div>
+              <div class="subtitle">Navigating Prices, Securing Futures</div>
+            </div>
+          </div>
+
+          <a href="{{ url_for('index') }}" class="nav-link home">
+            <span class="icon"
+              ><img src="{{ url_for('static', filename='img/home.png') }}"
+            /></span>
+            Home
+          </a>
+          <a href="{{ url_for('pricing') }}" class="nav-link pricing">
+            <span class="icon"
+              ><img
+                src="{{ url_for('static', filename='img/peso_symbol.png') }}"
+            /></span>
+            Pricing
+          </a>
+          <a href="{{ url_for('about') }}" class="nav-link about active">
+            <span class="icon"
+              ><img src="{{ url_for('static', filename='img/about.png') }}"
+            /></span>
+            About
+          </a>
+        </nav>
+      </div>
+      <div class="body">
+        <div class="main-content">
+          <div class="headers">
+            <h2 style="color: #e3ad03; margin-left: 40px; text-align: left">
+              ABOUT US
+            </h2>
+          </div>
+          <div class="mission">
+            <div
+              class="semi-con"
+              style="background: linear-gradient(rgba(246, 215, 118, 0.6), rgba(246, 215, 118, 0.6)), url('{{ url_for('static', filename='img/rice-about.png') }}');background-size: contain; border-radius: 20px;"
+            >
+              <h3 style="margin-bottom: 10px">Mission</h3>
+              <p
+                style="
+                  padding-left: 20px;
+                  padding-right: 20px;
+                  font-family: Verdana, Geneva, Tahoma, sans-serif;
+                  font-size: 18px;
+                  font-weight: 520;
+                "
+              >
+                Welcome to RRPP (Rice Retail Price Prediction), your go-to
+                platform <br />
+                for accurate and insightful forecasts on rice prices in the<br />
+                Philippines. Our mission at RRPP is to empower individuals
+                and<br />
+                businesses within the rice industry with the knowledge they need
+                to<br />
+                make informed decisions and thrive in a dynamic market
+                environment.
+              </p>
+            </div>
+          </div>
+          <div class="why">
+            <h3>Why Choose RRPP?</h3>
+            <div class="item">
+              <i
+                class="fi fi-tr-users"
+                style="margin-right: 18px; font-size: 28px"
+              ></i>
+              <p>
+                Join the RRPP community today to unlock the power
+                <br />of data-driven decision-making in rice, whether <br />
+                you're a seasoned pro or a newcomer, as we're here <br />
+                to support your success journey.
+              </p>
+            </div>
+            <div class="item">
+              <i
+                class="fi fi-bs-location-crosshairs"
+                style="margin-right: 13px; font-size: 28px"
+              ></i>
+              <p>
+                Our goal is to benefit everyone in the rice industry, <br />
+                from small farmers to big traders, with our forecasts <br />
+                enabling smarter decisions and increased <br />
+                profitability.
+              </p>
+            </div>
+            <div class="item">
+              <i
+                class="fi fi-ts-bulb"
+                style="margin-right: 13px; font-size: 28px"
+              ></i>
+              <p>
+                We've crafted accurate predictions by analyzing past <br />
+                prices and market trends. Let's leverage rice price <br />
+                prediction for growth and prosperity in the <br />
+                Philippines.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-container">
+          <section class="footer-layout">
+            <div class="logo-row">
+              <section class="layout">
+                <div class="logo">
+                  <img
+                    src="{{ url_for('static', filename='img/logo.png') }}"
+                    class="img_logo"
+                  />
+                </div>
+                <div class="logo-text-container">
+                  <div class="text-logo">
+                    <span style="color: #bacd92">RR</span
+                    ><span style="color: #eabd3d">PP</span>
+                  </div>
+                </div>
+                <div class="subtitle-container">
+                  <div class="text-content">
+                    <div class="subtitle">
+                      Navigating Prices, Securing Futures
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="grow1">
+              <a href="{{ url_for('index') }}">Home</a>
+              <a href="{{ url_for('pricing') }}">Pricing</a>
+              <a href="{{ url_for('about') }}">About</a>
+            </div>
+          </section>
+          <div class="footer-copyright">
+            <p>© 2024 Rice Retail Price Prediction. All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      // JavaScript function to toggle menu display
+      function toggleMenu() {
+        const menuContent = document.getElementById("mySidenav");
+        menuContent.style.width =
+          menuContent.style.width === "250px" ? "0px" : "250px";
+      }
+
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", function () {
+          document
+            .querySelectorAll(".nav-link")
+            .forEach((link) => link.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      // showing pop-up window
+      function showDiv() {
+        document.getElementById("pop-up").style.display = "block";
+      }
+
+      // hiding pop-up window
+      function hideDiv() {
+        document.getElementById("pop-up").style.display = "None";
+      }
+    </script>
+  </body>
+</html>

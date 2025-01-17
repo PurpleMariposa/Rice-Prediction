@@ -1,0 +1,1082 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  margin: 0;
+  padding: 0px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: lighter;
+  display: flex;
+  height: 100vh;
+  background-color: #f3f0f0;
+}
+
+.layout {
+  width: 100%;
+
+  display: grid;
+  grid:
+    "header header header" auto
+    "leftSide body rightSide" 1fr
+    "footer footer footer" auto
+    / auto 1fr auto;
+  gap: 8px;
+}
+
+.header {
+  grid-area: header;
+}
+.leftSide {
+  grid-area: leftSide;
+}
+.body {
+  grid-area: body;
+}
+.rightSide {
+  grid-area: rightSide;
+}
+.footer {
+  grid-area: footer;
+}
+
+/*Sidebar-Left*/
+
+/* LOGO AND ITS TEXTS */
+.menu .logo-container {
+  max-width: fit-content;
+  height: 14%;
+  margin-left: 30px;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img_logo {
+  max-width: 50px;
+}
+.logo-container .text-logo span {
+  font-size: 30px;
+  font-weight: 700;
+}
+.text-content {
+  font-family: "Spectral", serif;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtitle {
+  margin-top: -15%;
+  font-family: "Spectral", serif;
+  font-weight: bolder;
+  font-size: 5px;
+  color: #000000;
+}
+/* LOGO ENDS */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  border-right: 1px solid #a8abb4;
+  height: 100%;
+}
+
+.nav-link {
+  font-family: Verdana, sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  color: black;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  margin-bottom: 7px;
+  margin-right: 25px;
+  border-color: #f3f0f0;
+  margin-left: 25px;
+  border-width: 3px;
+  transition: all 0.3s ease;
+}
+
+.nav-link .icon {
+  margin-right: 10px;
+  margin-left: 3px;
+}
+
+.icon img {
+  margin-top: 2px;
+  width: 20px;
+  height: 19px;
+}
+
+.nav-link:hover {
+  background-color: #f0f0f0;
+}
+
+.nav-link.active {
+  border-color: gold;
+  border-width: 3px;
+  border-radius: 10px;
+}
+
+.nav-link.active .icon {
+  font-size: 18px;
+}
+
+/* RIGHT SIDE */
+/* content of update container display */
+.update-container-layout {
+  width: 130px;
+
+  display: grid;
+  grid:
+    "header-description-text header-description-text header-description-text" 0.4fr
+    "price-display price-display price-display" 35px
+    / 1fr 1fr;
+  gap: 1px;
+}
+
+.header-description-text {
+  grid-area: header-description-text;
+}
+.price-display {
+  grid-area: price-display;
+}
+
+.update-container-layout .header-description-text {
+  font-size: 1vw;
+  font-weight: 500;
+}
+
+.update-container-layout .price-display,
+.peso-sign {
+  text-align: center;
+}
+
+.update-container-layout .peso-sign {
+  content: "\20B1";
+  font-size: 2vw;
+  font-weight: 500;
+}
+
+.update-container-layout .price-display {
+  font-size: 1.5vw;
+  font-family: Verdana;
+  font-weight: bold;
+}
+
+.update-container-layout .arrow {
+  font-size: 1vw;
+  font-weight: bold;
+  color: #821131;
+}
+
+.update-container-layout .scale-growth-percentage {
+  font-weight: 500;
+}
+/* content of update container display end*/
+.rightSide {
+  padding: 20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-left: 1px solid #a8abb4;
+}
+/* right menu containers */
+.rightSide .update-container {
+  max-width: fit-content;
+  max-height: fit-content;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #faef98;
+  margin: 20px auto;
+
+  -webkit-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.37);
+  box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.37);
+}
+/* right menu containers end */
+
+/* RIGHT SIDE ENDS  */
+
+/* GRID LAYOUT BODY */
+.body-layout {
+  width: 100%;
+  display: grid;
+  grid:
+    "header-container header-container header-container header-container" 0.1fr
+    "container1 container2 container3 container4" max-content
+    "header2-container header2-container header2-container header2-container" 0.1fr
+    "graph graph graph graph" 1fr
+    / 1fr 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.header-container {
+  grid-area: header-container;
+}
+.header-container h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 35px;
+  color: #e3ad03;
+}
+.container1 {
+  grid-area: container1;
+}
+.container2 {
+  grid-area: container2;
+}
+.container3 {
+  grid-area: container3;
+}
+
+.container4 {
+  grid-area: container4;
+}
+.header2-container {
+  grid-area: header2-container;
+  padding-top: 18px;
+  padding-bottom: 10px;
+}
+.header2-container h1 {
+  font-size: 22px;
+}
+.graph {
+  grid-area: graph;
+}
+.graph {
+  display: flex; /* Define as a flex container */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+}
+.body .header-container {
+  display: flex; /* Make it a flex container */
+  justify-content: center; /* Horizontally center the h1 */
+  align-items: center; /* Vertically center the h1 */
+  height: 100%; /* Optional: Set the height to fully occupy the grid cell */
+}
+/* GRID LAYOUT BODY ENDS*/
+
+/* content of price display  and its container*/
+.container {
+  color: #fff;
+  max-width: fit-content;
+  max-height: fit-content;
+  padding: 8%;
+  padding-bottom: 1px;
+  border-radius: 20px;
+  background: rgb(93, 103, 73);
+  background: linear-gradient(
+    0deg,
+    rgba(93, 103, 73, 1) 0%,
+    rgba(122, 135, 96, 1) 35%,
+    rgba(156, 172, 122, 1) 100%
+  );
+  margin-inline: auto;
+  display: inline-block;
+
+  -webkit-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.37);
+  box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.37);
+}
+
+.price-display-layout {
+  width: 100%;
+
+  display: grid;
+  grid:
+    "header-description-text header-description-text header-description-text" 0.4fr
+    "price-display price-display price-display" 1fr
+    / 1fr 1fr;
+  gap: 0px;
+}
+
+.header-description-text {
+  grid-area: header-description-text;
+}
+.price-display {
+  grid-area: price-display;
+}
+
+.header-description-text {
+  font-size: 1vw;
+  font-weight: 500;
+}
+
+.price-display,
+.peso-sign {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.peso-sign {
+  content: "\20B1";
+  font-size: 3vw;
+  font-weight: 500;
+}
+
+.price-display {
+  font-size: 2vw;
+  font-family: Verdana;
+  font-weight: bold;
+  margin-bottom: -5px;
+}
+
+.rice-type {
+  font-weight: 500;
+  font-size: 1vw;
+}
+/* content of price display end*/
+
+/* dropdown year menu */
+select {
+  padding: 8px 40px;
+  background-color: #fff;
+  border-color: #969696;
+  font-size: 18px;
+  font-weight: bold;
+}
+/* graph container and its content */
+.dropdown-layout {
+  width: 100%;
+
+  display: flex;
+  gap: 16px;
+  background-color: #fff;
+}
+
+.grow1 {
+  flex-grow: 1;
+}
+
+/* graph container and ites content ends */
+
+/* FOOTER CONTAINER AND ITS CONTENTS */
+.footer-container {
+  width: inherit;
+  padding: 10px;
+  background: rgb(93, 103, 73);
+  background: linear-gradient(
+    0deg,
+    rgba(93, 103, 73, 1) 0%,
+    rgba(122, 135, 96, 1) 35%,
+    rgba(156, 172, 122, 1) 100%
+  );
+  max-height: fit-content;
+}
+
+.footer-layout {
+  width: 100%;
+
+  display: flex;
+  gap: 16px;
+}
+
+.grow1 {
+  flex-grow: 1;
+  padding-top: 20px;
+}
+/* LOGO AND ITS TEXTS */
+
+/* footer logo layout */
+.footer-layout .layout {
+  width: 100%;
+
+  display: grid;
+  grid:
+    "logo logo-text-container" 0.1fr
+    "logo subtitle-container" 0.3fr
+    / 0.1fr 1fr;
+  gap: 8px;
+}
+
+.footer-layout .logo {
+  grid-area: logo;
+  padding: 5px;
+}
+.footer-layout .logo-text-container {
+  grid-area: logo-text-container;
+}
+.footer-layout .subtitle-container {
+  grid-area: subtitle-container;
+}
+/* footer logo layout ends */
+
+.footer-layout .menu .logo-container {
+  max-width: fit-content;
+  height: 14%;
+  display: flex;
+  align-items: center;
+}
+
+.footer-layout .img_logo {
+  max-width: 55px;
+}
+.footer-layout .logo-text-container .text-logo span {
+  font-size: 25px;
+  font-weight: 700;
+  display: inline-block;
+  font-family: Spectral;
+}
+.footer-layout .text-content {
+  font-family: "Spectral", serif;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-layout .subtitle {
+  margin-top: -10%;
+  font-family: "Spectral", serif;
+  font-weight: bolder;
+  font-size: 8px;
+  color: #000000;
+}
+/* LOGO ENDS */
+.footer-layout .grow1 a {
+  margin: 0 10px; /* Add spacing between links */
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+  border-left: 2px solid #333;
+  padding-left: 2px;
+  font-size: 10px;
+}
+
+.footer-copyright {
+  padding: 5px;
+  text-align: end;
+  border-top: 1px solid #333;
+}
+.footer-copyright p {
+  font-size: 10px;
+  color: #333;
+}
+/* FOOTER CONTAINER AND ITS CONTENTS ENDS */
+
+/* HIDING MENU ON DEFAULT */
+.menu-header {
+  display: none;
+}
+.header .logo-container-header {
+  display: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+.header {
+  display: none;
+}
+
+/* CHART  */
+.label-container {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  justify-content: center; /* Horizontally center items */
+  text-align: center;
+  padding-top: 40px;
+  gap: 25px;
+}
+
+.label-container .container1 {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  background-color: none;
+  gap: 2px;
+}
+
+.label-container .container1 p {
+  font-size: 12px;
+}
+
+.container-graph {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add some styling */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 1200px; /* Set a max-width for the chart container */
+  padding: 20px;
+  border: none;
+  background: none;
+  margin: 0 auto; /* Center the container horizontally */
+  display: flex;
+  justify-content: center; /* Ensure the content inside is centered */
+  overflow: hidden; /* Allow horizontal scrolling if needed */
+}
+
+canvas {
+  width: 100%; /* Allow the canvas to be responsive */
+  height: 100%;
+}
+
+.chart-small {
+  width: 51px;
+}
+
+.chart-large {
+  width: 90%;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+.chart-large {
+  width: 90%;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+}
+
+/* customizing scrollbar */
+.chart-large::-webkit-scrollbar {
+  width: 10px; /* Set scrollbar width */
+  height: 8px; /* Set scrollbar height */
+}
+
+.chart-large::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Set scrollbar thumb color */
+  border-radius: 10px; /* Optional: rounded corners */
+}
+
+.chart-large::-webkit-scrollbar-track {
+  background-color: #eee; /* Set scrollbar track color */
+}
+/* scrollbar customization ends */
+
+.box {
+  width: calc(500vh - 51px);
+  height: 500px;
+}
+
+.graph {
+  display: flex;
+  justify-content: center; /* Horizontally center the whole graph */
+  align-items: center;
+}
+
+/* CHART ENDS */
+
+/* Responsive Design for Mobile View */
+@media (max-width: 768px) {
+  .header-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  .logo-container-header {
+    margin: 0 auto; /* Horizontally center the logo container */
+  }
+  .header-container button {
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 30px;
+    border: none;
+    color: #e3ad03;
+    font-weight: bold;
+    background-color: transparent;
+  }
+  .header {
+    display: block;
+    border-bottom: 1px solid #a8abb4;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .header .logo-container-header {
+    display: inline;
+    width: 80%;
+    display: flex;
+    align-items: center;
+  }
+
+  .img_logo {
+    max-width: 80px;
+  }
+
+  .text-content {
+    font-family: "Spectral", serif;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .subtitle {
+    margin-top: -13%;
+    font-family: "Spectral", serif;
+    font-weight: bolder;
+    font-size: 9px;
+    color: #000000;
+  }
+  .layout .leftSide {
+    display: none;
+  }
+  .header {
+    padding: 3%;
+  }
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+
+  .sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 100px;
+    left: 0;
+    background-color: #e3ad03; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    color: #000;
+  }
+
+  .nav-link {
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    color: black;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    margin-bottom: 7px;
+    margin-right: 25px;
+    margin-left: 25px;
+    border-width: 3px;
+    transition: all 0.3s ease-in-out;
+    background-color: #e3ad03;
+    border-color: #e3ad03;
+    border-width: 3px;
+    border-radius: 10px;
+  }
+
+  .nav-link .icon {
+    margin-right: 10px;
+    margin-left: 3px;
+  }
+
+  .icon img {
+    margin-top: 2px;
+    width: 20px;
+    height: 19px;
+  }
+
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: #e3ad03;
+    border-width: 3px;
+    border-radius: 10px;
+  }
+
+  .nav-link.active .icon {
+    font-size: 18px;
+  }
+
+  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+  #main {
+    transition: margin-left 0.5s;
+    padding: 20px;
+  }
+
+  /* BODY LAYOUT */
+  .layout {
+    width: 100%;
+
+    display: grid;
+    grid:
+      "header header header" auto
+      "leftSide body body" 1fr
+      "rightSide rightSide rightSide" auto
+      "footer footer footer" auto
+      / auto 1fr auto;
+    gap: 8px;
+  }
+  .rightSide h1 {
+    text-align: center;
+    width: 100%;
+  }
+  .header {
+    grid-area: header;
+  }
+  .leftSide {
+    grid-area: leftSide;
+  }
+  .body {
+    grid-area: body;
+  }
+  .rightSide {
+    grid-area: rightSide;
+  }
+  .footer {
+    grid-area: footer;
+  }
+  /* BODY LAYOUT ENDS */
+
+  /* RIGHT SIDE */
+  .rightSide h1 {
+    width: 100%;
+    position: absolute;
+  }
+  .rightSide {
+    padding: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    border-left: 1px solid #a8abb4;
+    height: 250px;
+  }
+  .rightSide .update-wrapper {
+    display: inline-flex;
+    max-width: fit-content;
+    margin-top: 60px;
+    gap: 15px;
+  }
+  .update-container {
+    display: inline-block;
+    font-size: 15px;
+  }
+  /* right menu containers */
+  .rightSide .update-container {
+    /* max-width: fit-content; */
+    /* max-height: fit-content; */
+    width: 150px;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #faef98;
+    margin: 20px auto;
+
+    -webkit-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.37);
+    box-shadow: 1px 3px 5px 0px rgba(0, 0, 0, 0.37);
+  }
+
+  /* content of update container display */
+  .update-container-layout {
+    width: 100%;
+
+    display: grid;
+    grid:
+      "header-description-text header-description-text header-description-text" 0.4fr
+      "price-display price-display price-display" 1fr
+      / 1fr 1fr;
+    gap: 8px;
+  }
+  .header-description-text {
+    font-size: 15px;
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+  .container p {
+    font-size: 10px;
+  }
+
+  .header-description-text {
+    grid-area: header-description-text;
+  }
+  .price-display {
+    grid-area: price-display;
+    font-size: 20px;
+  }
+  .peso-sign {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .container {
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    flex-direction: column; /* Stack elements vertically if needed */
+    max-width: fit-content;
+    padding: 10px;
+    padding-right: 3px;
+  }
+  .body-layout .container1 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  .body-layout .container2 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  .body-layout .container3 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  .body-layout .container4 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  .container1,
+  .container2,
+  .container3,
+  .container4 {
+    margin: 10px;
+  }
+
+  .update-wrapper .update-container {
+    width: 200px;
+  }
+  .update-container-layout .header-description-text {
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .update-container-layout .price-display,
+  .peso-sign {
+    text-align: center;
+  }
+
+  .update-container-layout .peso-sign {
+    content: "\20B1";
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  .update-container-layout .price-display {
+    font-size: 30px;
+    font-family: Verdana;
+    font-weight: 500;
+  }
+
+  .update-container-layout .scale-growth-percentage {
+    font-weight: 500;
+  }
+  /* content of update container display end*/
+  /* right menu containers end */
+  /* RIGHT SIDE ENDS */
+
+  /* BODY GRID LAYOUT AND ITS CONTENTS */
+  .body-layout {
+    width: 100%;
+
+    display: grid;
+    grid:
+      "header-container header-container" 0.1fr
+      "container1 container2" 0.1fr
+      "container3 container4" 0.1fr
+      "header2-container header2-container" 0.1fr
+      "graph graph" 1fr
+      / 1fr 1fr;
+    gap: 8px;
+  }
+
+  .body .header-container {
+    display: flex; /* Make it a flex container */
+    justify-content: center; /* Horizontally center the h1 */
+    align-items: center; /* Vertically center the h1 */
+    height: 100%; /* Optional: Set the height to fully occupy the grid cell */
+  }
+  .header-container h1 {
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #e3ad03;
+    text-align: center;
+  }
+  .container1 {
+    grid-area: container1;
+  }
+  .container2 {
+    grid-area: container2;
+  }
+  .container3 {
+    grid-area: container3;
+  }
+  .container4 {
+    grid-area: container4;
+  }
+  .header2-container {
+    grid-area: header2-container;
+    text-align: center;
+  }
+  .graph {
+    display: flex; /* Define as a flex container */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+  }
+
+  /* BODY GRID LAYOUT AND ITS CONTENTS */
+
+  /* FOOTER CONTAINER AND ITS CONTENTS */
+  .footer-container {
+    width: inherit;
+    padding: 10px;
+    background: rgb(93, 103, 73);
+    background: linear-gradient(
+      0deg,
+      rgba(93, 103, 73, 1) 0%,
+      rgba(122, 135, 96, 1) 35%,
+      rgba(156, 172, 122, 1) 100%
+    );
+    max-height: fit-content;
+  }
+
+  .footer-layout {
+    width: 100%;
+
+    display: grid;
+    grid:
+      "logo-row" 0.5fr
+      "grow1" 0.2fr
+      / 1fr;
+    gap: 8px;
+  }
+
+  .logo-row {
+    grid-area: logo-row;
+    display: flex;
+    justify-content: center;
+  }
+  .grow1 {
+    grid-area: grow1;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    padding-bottom: 20px;
+  }
+  /* LOGO AND ITS TEXTS */
+
+  /* footer logo layout */
+  .footer-layout .layout {
+    max-width: fit-content;
+
+    display: grid;
+    grid:
+      "logo logo-text-container" 0.1fr
+      "logo subtitle-container" 0.3fr
+      / 0.1fr 1fr;
+    gap: 8px;
+  }
+
+  .footer-layout .logo {
+    grid-area: logo;
+    padding: 5px;
+  }
+  .footer-layout .logo-text-container {
+    grid-area: logo-text-container;
+  }
+  .footer-layout .subtitle-container {
+    grid-area: subtitle-container;
+  }
+  /* footer logo layout ends */
+
+  .footer-layout .menu .logo-container {
+    max-width: fit-content;
+    height: 14%;
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-layout .img_logo {
+    max-width: 55px;
+  }
+  .footer-layout .logo-text-container .text-logo span {
+    font-size: 25px;
+    font-weight: 700;
+    display: inline-block;
+    font-family: Spectral;
+  }
+  .footer-layout .text-content {
+    font-family: "Spectral", serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .footer-layout .subtitle {
+    margin-top: -10%;
+    font-family: "Spectral", serif;
+    font-weight: bolder;
+    font-size: 8px;
+    color: #000000;
+  }
+  /* LOGO ENDS */
+  .footer-layout .grow1 a {
+    margin: 0 10px; /* Add spacing between links */
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+    border-left: 2px solid #333;
+    padding-left: 2px;
+    font-size: 10px;
+  }
+
+  .footer-copyright {
+    padding: 5px;
+    text-align: end;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: center;
+  }
+  .footer-copyright p {
+    font-size: 10px;
+    color: #333;
+  }
+  /* FOOTER CONTAINER AND ITS CONTENTS ENDS */
+}
+
+/*DYNAMIC home box FONT*/
+.inter-font {
+  font-family: "Inter", sans-serif;
+}
+
+.inter-font p {
+  margin-top: 10px;
+}
+
+/* chart */
+.chart-container {
+  width: 90%;
+  padding: 20px;
+}
+canvas {
+  width: 100%; /* Allow the canvas to be responsive */
+  height: 100%;
+}
+.chart-small {
+  width: 51px;
+  padding-top: 20px;
+  padding-bottom: 2px;
+}
+.chart-large {
+  width: 80%;
+  padding: 20px;
+  overflow-x: scroll;
+}
+.box {
+  width: calc(500vh - 51px);
+  height: 500px;
+}
+/* chart ends */

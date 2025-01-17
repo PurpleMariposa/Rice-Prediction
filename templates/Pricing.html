@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/pricing.css') }}"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='node_modules/chart.js/dist/chart.umd.js') }}"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css"
+    />
+    <title>Pricing</title>
+  </head>
+  <body>
+    <section class="layout">
+      <div class="header">
+        <div
+          class="header-container"
+          style="display: flex; align-items: center"
+        >
+          <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+          <div class="logo-container-header">
+            <img
+              src="{{ url_for('static', filename='img/logo.png') }}"
+              class="img_logo"
+            />
+            <div class="text-content">
+              <div style="font-size: 2em; font-weight: 700">
+                <span style="color: #bacd92">RR</span
+                ><span style="color: #eabd3d">PP</span>
+              </div>
+              <div class="subtitle">Navigating Prices, Securing Futures</div>
+            </div>
+          </div>
+        </div>
+        <div id="mySidenav" class="sidenav">
+          <a href="{{ url_for('index') }}" class="nav-link home">
+            <span class="icon"
+              ><img src="{{ url_for('static', filename='img/home.png') }}"
+            /></span>
+            Home
+          </a>
+          <a href="{{ url_for('pricing') }}" class="nav-link pricing active">
+            <span class="icon"
+              ><img
+                src="{{ url_for('static', filename='img/peso_symbol.png') }}"
+            /></span>
+            Pricing
+          </a>
+          <a href="{{ url_for('about') }}" class="nav-link about">
+            <span class="icon"
+              ><img src="{{ url_for('static', filename='img/about.png') }}"
+            /></span>
+            About
+          </a>
+        </div>
+      </div>
+      <div class="leftSide">
+        <nav class="menu">
+          <div class="logo-container">
+            <img
+              src="{{ url_for('static', filename='img/logo.png') }}"
+              class="img_logo"
+            />
+            <div class="text-content">
+              <div class="text-logo">
+                <span style="color: #bacd92">RR</span
+                ><span style="color: #eabd3d">PP</span>
+              </div>
+              <div class="subtitle">Navigating Prices, Securing Futures</div>
+            </div>
+          </div>
+
+          <a href="{{ url_for('index') }}" class="nav-link home">
+            <span class="icon"
+              ><img src="{{ url_for('static', filename='img/home.png') }}"
+            /></span>
+            Home
+          </a>
+          <a href="{{ url_for('pricing') }}" class="nav-link pricing active">
+            <span class="icon"
+              ><img
+                src="{{ url_for('static', filename='img/peso_symbol.png') }}"
+            /></span>
+            Pricing
+          </a>
+          <a href="{{ url_for('about') }}" class="nav-link about">
+            <span class="icon"
+              ><img src="{{ url_for('static', filename='img/about.png') }}"
+            /></span>
+            About
+          </a>
+        </nav>
+      </div>
+      <div class="body">
+        <div class="main-content">
+          <div class="content-wrapper">
+            <!-- Progress Modal Container -->
+            <div id="progress-modal" style="display: none">
+              <div id="modal-content">
+                <h2>Processing please wait...</h2>
+                <div id="progress-container">
+                  <div id="progress-bar">0%</div>
+                </div>
+              </div>
+            </div>
+            <div id="pop-up" class="pop-up-container">
+              <div class="pop-up-window">
+                <section class="pop-up-window-layout">
+                  <div class="close-button-container">
+                    <button class="close-button" onclick="closeModal()">
+                      &#x2715;
+                    </button>
+                  </div>
+                  <div class="pop-up-Header">
+                    <h1>Predicted Retail Price</h1>
+                  </div>
+                  <div class="pop-up-Month">
+                    <p>Month:</p>
+                  </div>
+                  <div class="pop-up-Month-item">
+                    <div class="container" id="predicted_month">December</div>
+                  </div>
+                  <div class="pop-up-Year">
+                    <p>Year:</p>
+                  </div>
+                  <div class="pop-up-Year-item">
+                    <div class="container" id="predicted_year">2024</div>
+                  </div>
+                  <div class="pop-up-RiceType">
+                    <p>Rice Type:</p>
+                  </div>
+                  <div class="pop-up-RiceType-item">
+                    <div class="container" id="predicted_type">Premium</div>
+                  </div>
+                  <div class="pop-up-RetailPrice">
+                    <p>Retail Price (per/kg):</p>
+                    <br />
+                  </div>
+                  <div class="pop-up-RetailPrice--item">
+                    <div class="container" id="predicted_price">50.00</div>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <section class="body-layout">
+              <div class="retail-price-container">
+                <h1>PRICING</h1>
+                <div class="headline-container">Retail Rice Price</div>
+                <div
+                  class="container"
+                  style="
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                    border-radius: 8px;
+                  "
+                >
+                  <div class="dropdown-container">
+                    Year:
+                    <input
+                      type="number"
+                      name="year"
+                      id="year-input"
+                      value="2024"
+                      onkeypress="triggerPrediction(event)"
+                    />
+                  </div>
+
+                  <div class="label-container">
+                    <div class="container1">
+                      <i
+                        class="fi fi-ss-no-people"
+                        style="color: rgba(54, 162, 235, 1)"
+                      ></i>
+                      <p>Regular Rice</p>
+                    </div>
+                    <div class="container1">
+                      <i
+                        class="fi fi-ss-no-people"
+                        style="color: rgba(255, 99, 132, 1)"
+                      ></i>
+                      <p>Premium</p>
+                    </div>
+                    <div class="container1">
+                      <i class="fi fi-ss-no-people" style="color: #dcf16f"></i>
+                      <p>Special</p>
+                    </div>
+                    <div class="container1">
+                      <i
+                        class="fi fi-ss-no-people"
+                        style="color: rgba(153, 102, 255, 1)"
+                      ></i>
+                      <p>Well Milled</p>
+                    </div>
+                  </div>
+                  <div class="chart-container">
+                    <canvas id="retail-price-chart" class="chart"></canvas>
+                    <!-- Loading Container -->
+                    <div id="loading-container">
+                      <div class="loading-message">
+                        <p>Loading data, please wait...</p>
+                        <div class="spinner"></div>
+                      </div>
+                    </div>
+                    <!-- loading container ends -->
+                  </div>
+                </div>
+              </div>
+              <div class="retail-price-prediction">
+                <h2>Retail Rice Prediction</h2>
+                <div class="retail-rice-prediction-container">
+                  <form
+                    method="POST"
+                    onsubmit="event.preventDefault(); submitForm(); startTask();"
+                  >
+                    <section class="retail-rice-prediction-layout">
+                      <div class="month-text"><p>Month:</p></div>
+                      <div class="month-item">
+                        <select
+                          name="month"
+                          id="month"
+                          class="start-year"
+                          required
+                        >
+                          <option value="1">January</option>
+                          <option value="2">February</option>
+                          <option value="3">March</option>
+                          <option value="4">April</option>
+                          <option value="5">May</option>
+                          <option value="6">June</option>
+                          <option value="7">July</option>
+                          <option value="8">August</option>
+                          <option value="9">September</option>
+                          <option value="10">October</option>
+                          <option value="11">November</option>
+                          <option value="12">December</option>
+                        </select>
+                      </div>
+                      <div class="ricetype-text"><p>Rice Type:</p></div>
+                      <div class="ricetype-item">
+                        <select name="rice_type" id="rice_type" required>
+                          <option value="Regular">Regular</option>
+                          <option value="Well Milled">Well Milled</option>
+                          <option value="Premium">Premium</option>
+                          <option value="Special">Special</option>
+                        </select>
+                      </div>
+                      <div class="season-text"><p>Year:</p></div>
+                      <div class="season-item">
+                        <input
+                          type="number"
+                          name="year"
+                          id="year"
+                          min="1900"
+                          max="3000"
+                          class="start-year"
+                          required
+                        />
+                      </div>
+                      <div class="prediction-button">
+                        <input
+                          type="submit"
+                          name="answer"
+                          value="Predict"
+                          class="predict-button"
+                        />
+                      </div>
+                    </section>
+                  </form>
+                </div>
+                <div
+              class="container-graph"
+              style="
+                width: 100%;
+                max-height: fit-content;
+                background-color: #fff;
+                padding-top: 20px;
+                text-align: center;
+                margin-top: 40px;
+              "
+            >
+            <section class="dropdown-layout">
+              <div class="grow1">
+                <div class="year-container">
+                  <label for="startYear">Start Year:</label>
+                  <input
+                    type="number"
+                    id="startYear"
+                    class="year-options"
+                    min="2015"
+                    value="2015"
+                  />
+                </div>
+              </div>
+              <div class="grow1">
+                <div class="year-container">
+                  <label for="endYear">End Year:</label>
+                  <input
+                    type="number"
+                    id="endYear"
+                    class="year-options"
+                    min="2015"
+                    value="2015"
+                  />
+                </div>
+              </div>
+            </section>
+            
+              <div class="label-container">
+                <div class="container1">
+                  <i
+                    class="fi fi-ss-no-people"
+                    style="color: rgba(54, 162, 235, 1)"
+                  ></i>
+                  <p>Regular Rice</p>
+                </div>
+                <div class="container1">
+                  <i
+                    class="fi fi-ss-no-people"
+                    style="color: rgba(255, 99, 132, 1)"
+                  ></i>
+                  <p>Premium</p>
+                </div>
+                <div class="container1">
+                  <i class="fi fi-ss-no-people" style="color: rgba(220, 241, 111, 1)"></i>
+                  <p>Special</p>
+                </div>
+                <div class="container1">
+                  <i
+                    class="fi fi-ss-no-people"
+                    style="color: rgba(153, 102, 255, 1)"
+                  ></i>
+                  <p>Well Milled</p>
+                </div>
+              </div>
+              <div class="chart-container">
+                <div class="chart-small">
+                  <canvas id="line-chart1"></canvas>
+                </div>
+                <div class="chart-large">
+                  <div class="box">
+                    <canvas id="line-chart2"></canvas>
+                  </div>
+                </div>
+            </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="footer-container">
+          <section class="footer-layout">
+            <div class="logo-row">
+              <section class="layout">
+                <div class="logo">
+                  <img
+                    src="{{ url_for('static', filename='img/logo.png') }}"
+                    class="img_logo"
+                  />
+                </div>
+                <div class="logo-text-container">
+                  <div class="text-logo">
+                    <span style="color: #bacd92">RR</span
+                    ><span style="color: #eabd3d">PP</span>
+                  </div>
+                </div>
+                <div class="subtitle-container">
+                  <div class="text-content">
+                    <div class="subtitle">
+                      Navigating Prices, Securing Futures
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+            <div class="grow1">
+              <a href="{{ url_for('index') }}">Home</a>
+              <a href="{{ url_for('pricing') }}">Pricing</a>
+              <a href="{{ url_for('about') }}">About</a>
+            </div>
+          </section>
+          <div class="footer-copyright">
+            <p>© 2024 Rice Retail Price Prediction. All Rights Reserved</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="{{ url_for('static', filename='js/price.js') }}"></script>
+  </body>
+</html>

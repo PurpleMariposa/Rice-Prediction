@@ -1,0 +1,1447 @@
+@import url("https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+* {
+  margin: 0;
+  padding: 0px;
+}
+body {
+  font-family: Verdana;
+  font-weight: lighter;
+  display: flex;
+  height: 100vh;
+  background-color: #f3f0f0;
+}
+
+.layout {
+  width: 100%;
+
+  display: grid;
+  grid:
+    "header header header" auto
+    "leftSide body body" 1fr
+    "footer footer footer" auto
+    / auto 1fr auto;
+  gap: 8px;
+}
+
+.header {
+  grid-area: header;
+}
+.leftSide {
+  grid-area: leftSide;
+}
+.body {
+  grid-area: body;
+}
+.footer {
+  grid-area: footer;
+}
+
+/*Sidebar-Left*/
+
+/* LOGO AND ITS TEXTS */
+.menu .logo-container {
+  max-width: fit-content;
+  height: 14%;
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 10%; */
+  /* margin-left: 15%; */
+  /* margin-right: 20%; */
+}
+
+.img_logo {
+  max-width: 60px;
+}
+.logo-container .text-logo span {
+  font-size: 40px;
+  font-weight: 700;
+}
+.text-content {
+  font-family: "Spectral", serif;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subtitle {
+  margin-top: -10%;
+  font-family: "Spectral", serif;
+  font-weight: bolder;
+  font-size: 10px;
+  color: #000000;
+}
+/* LOGO ENDS */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  border-right: 1px solid #a8abb4;
+  height: 100%;
+}
+
+.nav-link {
+  font-family: Verdana, sans-serif;
+  font-size: 15px;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  color: black;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  margin-bottom: 7px;
+  margin-right: 25px;
+  border-color: #f3f0f0;
+  margin-left: 25px;
+  border-width: 3px;
+  transition: all 0.3s ease;
+}
+
+.nav-link .icon {
+  margin-right: 10px;
+  margin-left: 3px;
+}
+
+.icon img {
+  margin-top: 2px;
+  width: 20px;
+  height: 19px;
+}
+
+.nav-link:hover {
+  background-color: #f0f0f0;
+}
+
+.nav-link.active {
+  border-color: gold;
+  border-width: 3px;
+  border-radius: 10px;
+}
+
+.nav-link.active .icon {
+  font-size: 18px;
+}
+
+/* RIGHT SIDE */
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+}
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.top-containers {
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 3.5%;
+  display: flex;
+  flex-grow: 1;
+  gap: 1%;
+  height: 75%;
+}
+
+/* grid layout */
+.body-layout {
+  width: 100%;
+  display: grid;
+
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  grid:
+    "retail-price-container retail-price-container" 0.5fr
+    "retail-price-prediction retail-price-prediction" 1fr
+    / 1fr 1fr;
+  gap: 8px;
+}
+
+.retail-price-container {
+  grid-area: retail-price-container;
+}
+.retail-price-prediction {
+  grid-area: retail-price-prediction;
+  padding-bottom: 10%;
+  text-align: ceenter;
+}
+/* gid layout ends */
+
+.headline-container {
+  text-align: center;
+  margin-bottom: 2%;
+  font-size: 22px;
+  font-weight: bold;
+  color: #e3ad03;
+}
+
+.retail-price-container h1 {
+  margin-left: 50px;
+  margin-top: -30px;
+  margin-bottom: 60px;
+  font-size: 35px;
+  color: #e3ad03;
+}
+
+/* line chart container */
+.retail-price-container {
+  padding-top: 5%;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-bottom: 0px;
+}
+.retail-price-container .container {
+  padding: 5%;
+  background-color: #fff;
+  width: 70%;
+  margin: 0 auto;
+}
+
+/* Title styles */
+h2 {
+  margin: 20px;
+  margin-top: 30px;
+  font-size: 22px;
+  color: #e3ad03;
+  text-align: center;
+}
+
+/* Main container styles */
+.retail-price-container .container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center contents horizontally */
+}
+
+/* Dropdown container styles */
+.retail-price-container .container .dropdown-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Vertically aligns text and input */
+  justify-content: flex-end; /* Aligns text and input to the right within the dropdown */
+  max-width: fit-content;
+  padding-bottom: 4%;
+  align-self: flex-end; /* Positions dropdown container to the right */
+}
+
+/* Dropdown menu */
+.dropdown-container input {
+  padding: 8px 12px;
+  background-color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  width: auto;
+  margin-left: 8px;
+  border: 1px solid #696969;
+}
+.dropdown-container input:focus {
+  outline: none;
+}
+
+/* Label container */
+.label-container {
+  display: flex;
+  justify-content: center; /* Centers labels horizontally */
+  gap: 40px; /* Space between labels */
+  margin-bottom: 20px;
+}
+
+.label-container .container1 {
+  text-align: center;
+}
+
+.label-container .container1 p {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.label-container .container1 {
+  text-align: center;
+}
+
+.label-container .container1 p {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* /retail rice prediction container and its content */
+
+.retail-rice-prediction-container {
+  width: 35%;
+  max-height: fit-content;
+  background-color: #bacd92;
+  margin: 0 auto;
+  border-radius: 3%;
+  padding: 30px 60px;
+}
+
+.retail-rice-prediction-layout {
+  width: 100%;
+
+  display: grid;
+  grid:
+    "month-text month-item" 1fr
+    "ricetype-text ricetype-item" 1fr
+    "season-text season-item" 1fr
+    "prediction-button prediction-button" 1fr
+    / 1fr 1fr;
+  gap: 10px;
+}
+
+.month-text {
+  grid-area: month-text;
+  text-align: right;
+}
+.month-item {
+  grid-area: month-item;
+  padding-right: 10%;
+  width: 100%;
+}
+.ricetype-text {
+  grid-area: ricetype-text;
+  text-align: right;
+}
+.ricetype-item {
+  grid-area: ricetype-item;
+  padding-right: 10%;
+  width: 100%;
+}
+.season-text {
+  grid-area: season-text;
+  text-align: right;
+}
+.season-item {
+  grid-area: season-item;
+  padding-right: 10%;
+  width: 100%;
+}
+.prediction-button {
+  grid-area: prediction-button;
+  text-align: center;
+}
+
+.rice-retail-prediction-layout {
+  font-size: 2vw;
+}
+
+p {
+  font-size: 1vw;
+}
+
+.retail-rice-prediction-layout select,
+input {
+  margin: 0px;
+  padding: 0px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border: 1px white;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 1vw;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+}
+
+.predict-button {
+  padding: 5% 20%;
+  font-size: 1vw;
+  font-weight: bold;
+  border: 1px white;
+  background-color: #5d6c3d;
+  border-radius: 10px;
+  color: white;
+}
+
+/* retail rice prediction ends */
+
+/* pop-up window container and it's content */
+.pop-up-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(217, 217, 217, 0.8);
+  display: none;
+  z-index: 3;
+}
+
+.pop-up-window {
+  width: 40%;
+  max-height: fit-content;
+  background-color: #bacd92;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  font-family: Verdana;
+  text-align: center;
+  border: 1px #bacd92;
+  border-radius: 20px;
+  padding: 1%;
+}
+
+.pop-up-window-layout {
+  margin-bottom: 20px;
+}
+.pop-up-window-layout {
+  width: 100%;
+
+  display: grid;
+  grid:
+    "close-button-container close-button-container" 0.1fr
+    "pop-up-Header pop-up-Header" 1fr
+    "pop-up-Month pop-up-Month-item" 1fr
+    "pop-up-Year pop-up-Year-item" 1fr
+    "pop-up-RiceType pop-up-RiceType-item" 1fr
+    "pop-up-RetailPrice pop-up-RetailPrice--item" 1fr
+    / 0.5fr 1fr;
+  gap: 8px;
+}
+
+.close-button-container {
+  grid-area: close-button-container;
+}
+.pop-up-Header {
+  grid-area: pop-up-Header;
+}
+.pop-up-Month {
+  grid-area: pop-up-Month;
+  text-align: right;
+}
+.pop-up-Month-item {
+  grid-area: pop-up-Month-item;
+}
+.pop-up-Year {
+  grid-area: pop-up-Year;
+}
+.pop-up-Year-item {
+  grid-area: pop-up-Year-item;
+}
+.pop-up-RiceType {
+  grid-area: pop-up-RiceType;
+}
+.pop-up-RiceType-item {
+  grid-area: pop-up-RiceType-item;
+}
+.pop-up-RetailPrice {
+  grid-area: pop-up-RetailPrice;
+}
+.pop-up-RetailPrice--item {
+  grid-area: pop-up-RetailPrice--item;
+}
+
+.close-button {
+  font-size: 1vw;
+  max-width: fit-content;
+  max-height: fit-content;
+  font-weight: bold;
+  border: 1px #000000;
+  border-radius: 50%;
+  background-color: #bacd92;
+  float: right;
+}
+
+.pop-up-window .pop-up-window-layout h1 {
+  font-size: 2vw;
+}
+
+.pop-up-window .pop-up-window-layout p {
+  text-align: right;
+}
+
+.pop-up-window .pop-up-window-layout .container {
+  width: 50%;
+  max-height: fit-content;
+  padding: 5% 15%;
+  background-color: #fff;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+/* pop-up window container ends */
+
+/* FOOTER CONTAINER AND ITS CONTENTS */
+.footer-container {
+  width: inherit;
+  padding: 10px;
+  background: rgb(93, 103, 73);
+  background: linear-gradient(
+    0deg,
+    rgba(93, 103, 73, 1) 0%,
+    rgba(122, 135, 96, 1) 35%,
+    rgba(156, 172, 122, 1) 100%
+  );
+  max-height: fit-content;
+}
+
+.footer-layout {
+  width: 100%;
+
+  display: flex;
+  gap: 16px;
+}
+
+.grow1 {
+  flex-grow: 1;
+  padding-top: 20px;
+}
+/* LOGO AND ITS TEXTS */
+
+/* footer logo layout */
+.footer-layout .layout {
+  width: 100%;
+
+  display: grid;
+  grid:
+    "logo logo-text-container" 0.1fr
+    "logo subtitle-container" 0.3fr
+    / 0.1fr 1fr;
+  gap: 8px;
+}
+
+.footer-layout .logo {
+  grid-area: logo;
+  padding: 5px;
+}
+.footer-layout .logo-text-container {
+  grid-area: logo-text-container;
+}
+.footer-layout .subtitle-container {
+  grid-area: subtitle-container;
+}
+/* footer logo layout ends */
+
+.footer-layout .menu .logo-container {
+  max-width: fit-content;
+  height: 14%;
+  display: flex;
+  align-items: center;
+}
+
+.footer-layout .img_logo {
+  max-width: 55px;
+}
+.footer-layout .logo-text-container .text-logo span {
+  font-size: 25px;
+  font-weight: 700;
+  display: inline-block;
+  font-family: Spectral;
+}
+.footer-layout .text-content {
+  font-family: "Spectral", serif;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-layout .subtitle {
+  margin-top: -10%;
+  font-family: "Spectral", serif;
+  font-weight: bolder;
+  font-size: 8px;
+  color: #000000;
+}
+/* LOGO ENDS */
+.footer-layout .grow1 a {
+  margin: 0 10px; /* Add spacing between links */
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+  border-left: 2px solid #333;
+  padding-left: 2px;
+  font-size: 10px;
+}
+
+.footer-copyright {
+  padding: 5px;
+  text-align: end;
+  border-top: 1px solid #333;
+}
+.footer-copyright p {
+  font-size: 10px;
+  color: #333;
+}
+/* FOOTER CONTAINER AND ITS CONTENTS ENDS */
+
+/* HIDING MENU ON DEFAULT */
+.menu-header {
+  display: none;
+}
+.header .logo-container-header {
+  display: none;
+}
+
+.menu-toggle {
+  display: none;
+}
+.header {
+  display: none;
+}
+
+/* CHART */
+.label-container {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  justify-content: center; /* Horizontally center items */
+  text-align: center;
+  padding-top: 40px;
+  gap: 25px;
+}
+.label-container .container1 {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  background-color: none;
+  gap: 2px;
+}
+
+.label-container .container1 p {
+  font-size: 12px;
+}
+/* Chart Container */
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* or your desired chart width */
+  margin: 0 auto; /* Center the chart */
+  height: 400px;
+}
+/* CHART ENDS */
+
+/* CHART 2015-2020  */
+.retail-price-prediction {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+}
+
+.chart-container-historical {
+  background-color: white;
+  margin-top: 40px;
+  width: 800px; /* Example width */
+  padding: 10px;
+  height: 500px; /* Example height */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  position: relative; /* Make the container relative for absolute positioning inside it */
+}
+
+/* Positioning the year filter dropdown at the top-right */
+.year-filter-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff; /* Optional: to make sure the dropdown stands out */
+  padding: 5px; /* Optional: to provide some padding around the dropdown */
+  z-index: 10; /* Ensure the dropdown appears above the chart */
+}
+
+/* Style for the dropdown menu */
+#year-filter {
+  font-size: 14px;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* CHART 2015-2020 ENDS
+
+/* Loading Container Styles */
+#loading-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  visibility: hidden;
+}
+
+#loading-container .loading-message {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+}
+
+#loading-container .spinner {
+  border: 8px solid rgba(255, 255, 255, 0.3);
+  border-top: 8px solid #ffffff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-top: 15px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Optional: Style adjustments for chart */
+#retail-price-chart {
+  width: 100%;
+  height: auto;
+}
+
+/* LOADING CHART CONTAINER ENDS */
+
+/* Progress bar style */
+/* Modal styling */
+#progress-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 100px;
+}
+
+/* Modal Content */
+#modal-content {
+  margin: auto;
+  padding: 20px;
+  width: 50%;
+  background-color: #fff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Progress Bar styling */
+/* Modal styling */
+#progress-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding-top: 100px;
+}
+
+/* Modal Content */
+#modal-content {
+  margin: auto;
+  padding: 20px;
+  width: 50%;
+  background-color: #fff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Progress Bar styling */
+#progress-modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#modal-content {
+  width: 50%;
+  background-color: #fff;
+  border-radius: 8px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Progress Bar styling */
+#progress-container {
+  width: 100%;
+  background-color: #f3f3f3;
+  margin-top: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#progress-bar {
+  width: 0;
+  height: 30px;
+  background-color: #4caf50;
+  text-align: center;
+  color: white;
+  line-height: 30px;
+}
+/* Progress bar style ends */
+
+/* Responsive Design for Mobile View */
+@media (max-width: 768px) {
+  .header-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  .logo-container-header {
+    margin: 0 auto; /* Horizontally center the logo container */
+  }
+  .header-container button {
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 30px;
+    border: none;
+    color: #e3ad03;
+    font-weight: bold;
+    background-color: transparent;
+  }
+  .header {
+    display: block;
+    border-bottom: 1px solid #a8abb4;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .header .logo-container-header {
+    display: inline;
+    width: 80%;
+    display: flex;
+    align-items: center;
+  }
+
+  .img_logo {
+    max-width: 80px;
+  }
+
+  .text-content {
+    font-family: "Spectral", serif;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .subtitle {
+    margin-top: -13%;
+    font-family: "Spectral", serif;
+    font-weight: bolder;
+    font-size: 9px;
+    color: #000000;
+  }
+  .layout .leftSide {
+    display: none;
+  }
+  .header {
+    padding: 3%;
+  }
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+
+  .sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 100px;
+    left: 0;
+    background-color: #e3ad03; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    color: #000;
+  }
+
+  .nav-link {
+    font-family: Verdana, sans-serif;
+    font-size: 15px;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    color: black;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    margin-bottom: 7px;
+    margin-right: 25px;
+    margin-left: 25px;
+    border-width: 3px;
+    transition: all 0.3s ease-in-out;
+    background-color: #e3ad03;
+    border-color: #e3ad03;
+    border-width: 3px;
+    border-radius: 10px;
+  }
+
+  .nav-link .icon {
+    margin-right: 10px;
+    margin-left: 3px;
+  }
+
+  .icon img {
+    margin-top: 2px;
+    width: 20px;
+    height: 19px;
+  }
+
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-color: #e3ad03;
+    border-width: 3px;
+    border-radius: 10px;
+  }
+
+  .nav-link.active .icon {
+    font-size: 18px;
+  }
+
+  /* /retail rice prediction container and its content */
+  .retail-rice-prediction-container {
+    max-width: fit-content;
+    max-height: fit-content;
+    background-color: #bacd92;
+    margin: 0 auto;
+    border-radius: 3%;
+  }
+  p {
+    font-size: 10px;
+  }
+  .retail-rice-prediction-container {
+    width: 80%;
+    max-height: fit-content;
+    background-color: #bacd92;
+    margin: 0 auto;
+    border-radius: 3%;
+    padding: 10px 20px;
+  }
+
+  .rice-retail-prediction-layout p {
+    font-size: 10px;
+  }
+
+  .retail-rice-prediction-layout select,
+  input {
+    font-size: 10px;
+  }
+
+  .predict-button {
+    font-size: 10px;
+  }
+
+  /* retail rice prediction container and its contents ends */
+
+  /* BODY AND ITS CONTENTS */
+  .retail-price-container {
+    text-align: center;
+  }
+  .retail-price-container h1 {
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: #e3ad03;
+    width: 100%;
+  }
+
+  .headline-container {
+    text-align: center;
+    margin-bottom: 2%;
+    font-size: 20px;
+    color: #e3ad03;
+  }
+
+  h2 {
+    margin: 20px;
+    margin-top: 30px;
+    font-size: 20px;
+    color: #e3ad03;
+    text-align: center;
+  }
+  /* BODY AND ITS CONTENTS ENDS */
+
+  /* pop-up window container and it's content */
+  .pop-up-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(217, 217, 217, 0.8);
+  }
+
+  .pop-up-window {
+    width: 90%;
+    max-height: fit-content;
+    background-color: #bacd92;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    font-family: Verdana;
+    text-align: center;
+    border: 1px #bacd92;
+    border-radius: 10px;
+    padding: 5px;
+  }
+
+  .pop-up-window-layout {
+    width: 100%;
+
+    display: grid;
+    grid:
+      "close-button-container close-button-container" 0.1fr
+      "pop-up-Header pop-up-Header" 1fr
+      "pop-up-Month pop-up-Month-item" 1fr
+      "pop-up-Year pop-up-Year-item" 1fr
+      "pop-up-RiceType pop-up-RiceType-item" 1fr
+      "pop-up-RetailPrice pop-up-RetailPrice--item" 1fr
+      / 0.5fr 1fr;
+    gap: 8px;
+  }
+
+  .close-button-container {
+    grid-area: close-button-container;
+  }
+  .pop-up-Header {
+    grid-area: pop-up-Header;
+  }
+  .pop-up-Month {
+    grid-area: pop-up-Month;
+    text-align: right;
+  }
+  .pop-up-Month-item {
+    grid-area: pop-up-Month-item;
+  }
+  .pop-up-Year {
+    grid-area: pop-up-Year;
+  }
+  .pop-up-Year-item {
+    grid-area: pop-up-Year-item;
+  }
+  .pop-up-RiceType {
+    grid-area: pop-up-RiceType;
+  }
+  .pop-up-RiceType-item {
+    grid-area: pop-up-RiceType-item;
+  }
+  .pop-up-RetailPrice {
+    grid-area: pop-up-RetailPrice;
+  }
+  .pop-up-RetailPrice--item {
+    grid-area: pop-up-RetailPrice--item;
+  }
+
+  .close-button {
+    font-size: 10px;
+    max-width: fit-content;
+    max-height: fit-content;
+    font-weight: bold;
+    border: 1px #000000;
+    border-radius: 50%;
+    background-color: #bacd92;
+    float: right;
+  }
+
+  .pop-up-window .pop-up-window-layout h1 {
+    font-size: 15px;
+  }
+
+  .pop-up-window .pop-up-window-layout p {
+    text-align: right;
+  }
+
+  .pop-up-window .pop-up-window-layout .container {
+    width: 50%;
+    max-height: fit-content;
+    padding: 5% 15%;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-right: 10px;
+  }
+  .pop-up-window-layout .container {
+    font-size: 10px;
+  }
+  .pop-up-window-layout {
+    margin-bottom: 20px;
+  }
+  /* pop-up window container ends */
+
+  /* FOOTER CONTAINER AND ITS CONTENTS */
+  .footer-container {
+    width: inherit;
+    padding: 10px;
+    background: rgb(93, 103, 73);
+    background: linear-gradient(
+      0deg,
+      rgba(93, 103, 73, 1) 0%,
+      rgba(122, 135, 96, 1) 35%,
+      rgba(156, 172, 122, 1) 100%
+    );
+    max-height: fit-content;
+  }
+
+  .footer-layout {
+    width: 100%;
+
+    display: grid;
+    grid:
+      "logo-row" 0.5fr
+      "grow1" 0.2fr
+      / 1fr;
+    gap: 8px;
+  }
+
+  .logo-row {
+    grid-area: logo-row;
+    display: flex;
+    justify-content: center;
+  }
+  .grow1 {
+    grid-area: grow1;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    padding-bottom: 20px;
+  }
+  /* LOGO AND ITS TEXTS */
+
+  /* footer logo layout */
+  .footer-layout .layout {
+    max-width: fit-content;
+
+    display: grid;
+    grid:
+      "logo logo-text-container" 0.1fr
+      "logo subtitle-container" 0.3fr
+      / 0.1fr 1fr;
+    gap: 8px;
+  }
+
+  .footer-layout .logo {
+    grid-area: logo;
+    padding: 5px;
+  }
+  .footer-layout .logo-text-container {
+    grid-area: logo-text-container;
+  }
+  .footer-layout .subtitle-container {
+    grid-area: subtitle-container;
+  }
+  /* footer logo layout ends */
+
+  .footer-layout .menu .logo-container {
+    max-width: fit-content;
+    height: 14%;
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-layout .img_logo {
+    max-width: 55px;
+  }
+  .footer-layout .logo-text-container .text-logo span {
+    font-size: 25px;
+    font-weight: 700;
+    display: inline-block;
+    font-family: Spectral;
+  }
+  .footer-layout .text-content {
+    font-family: "Spectral", serif;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .footer-layout .subtitle {
+    margin-top: -10%;
+    font-family: "Spectral", serif;
+    font-weight: bolder;
+    font-size: 8px;
+    color: #000000;
+  }
+  /* LOGO ENDS */
+  .footer-layout .grow1 a {
+    margin: 0 10px; /* Add spacing between links */
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+    border-left: 2px solid #333;
+    padding-left: 2px;
+    font-size: 10px;
+  }
+
+  .footer-copyright {
+    padding: 5px;
+    text-align: end;
+    border-top: 1px solid #333;
+    display: flex;
+    justify-content: center;
+  }
+  .footer-copyright p {
+    font-size: 10px;
+    color: #333;
+  }
+  /* FOOTER CONTAINER AND ITS CONTENTS ENDS */
+
+  /* CHART */
+  /* Label container */
+  .label-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px; /* Space between labels */
+    margin-bottom: 20px; /* Space below the label container */
+  }
+
+  .label-container .container1 {
+    text-align: center;
+  }
+
+  .label-container .container1 p {
+    margin-top: 5px;
+    font-size: 8px;
+    font-weight: bold;
+  }
+
+  /* Chart Container */
+  .chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* or your desired chart width */
+    margin: 0 auto; /* Center the chart */
+    height: 200px;
+  }
+  /* CHART ENDS */
+}
+
+/* FORECASTING CHART*/
+.year-container {
+  display: flex; /* Arrange label and input side by side */
+  align-items: center; /* Vertically align label and input */
+  gap: 8px; /* Add space between label and input */
+}
+
+label {
+  font-size: 1rm;
+  font-family: Verdana;
+  font-weight: bold;
+}
+
+.dropdown-layout {
+  display: flex; /* Enables flexbox for horizontal layout */
+  justify-content: center; /* Centers the dropdowns horizontally */
+  gap: 20px; /* Adds space between the dropdowns */
+  margin-top: 20px; /* Optional: Adjust spacing above the dropdowns */
+}
+
+.grow1 {
+  display: flex;
+  flex-direction: column; /* Keeps the label and dropdown aligned vertically */
+  align-items: center; /* Center-aligns the contents */
+}
+
+.year-options {
+  padding: 8px 40px;
+  background-color: #fff;
+  border-color: #969696;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid #969696;
+}
+
+.label-container {
+  display: flex;
+  align-items: center; /* Vertically center items */
+  justify-content: center; /* Horizontally center items */
+  text-align: center;
+  padding-top: 40px;
+  gap: 25px;
+}
+
+.label-container .container1 {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  background-color: none;
+  gap: 2px;
+}
+
+.label-container .container1 p {
+  font-size: 12px;
+}
+
+.container-graph {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add some styling */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+.chart-container {
+  width: 100%; /* Ensure the container spans the full width of its parent */
+  max-width: 1200px; /* Set a maximum width for the chart container */
+  height: auto; /* Let the height adjust automatically based on content */
+  padding: 20px;
+  border: none;
+  background: none;
+  margin: 0 auto; /* Center the container horizontally */
+  display: flex;
+  justify-content: center; /* Center the content inside the container */
+  align-items: center; /* Vertically center the content */
+  overflow-x: auto; /* Allow horizontal scrolling */
+  overflow-y: hidden; /* Prevent vertical scrolling */
+}
+
+canvas {
+  width: 100%; /* Allow the canvas to scale responsively */
+  height: auto; /* Adjust height automatically based on aspect ratio */
+}
+
+.chart-small {
+  width: 51px;
+}
+
+.chart-large {
+  width: 100%; /* Allow chart container to take full width */
+  overflow-x: auto; /* Enable horizontal scroll */
+  scroll-behavior: smooth;
+}
+
+.chart-large::-webkit-scrollbar {
+  width: 10px; /* Set scrollbar width */
+  height: 8px; /* Set scrollbar height */
+}
+
+.chart-large::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Set scrollbar thumb color */
+  border-radius: 10px; /* Optional: rounded corners */
+}
+
+.chart-large::-webkit-scrollbar-track {
+  background-color: #eee; /* Set scrollbar track color */
+}
+/* scrollbar customization ends */
+
+.box {
+  width: calc(500vh - 51px);
+  height: 500px;
+}
+
+.graph {
+  display: flex;
+  justify-content: center; /* Horizontally center the whole graph */
+  align-items: center;
+  flex-wrap: wrap; /* Allows content to wrap on smaller screens */
+  width: 100%;
+}
+
+/* CHART ENDS */
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .dropdown-layout {
+    flex-direction: column; /* Stack dropdowns vertically */
+    gap: 15px; /* Add less space between dropdowns */
+  }
+
+  .year-options {
+    padding: 8px 20px; /* Adjust padding for smaller screens */
+    font-size: 16px; /* Make font size smaller */
+  }
+
+  .label-container {
+    flex-direction: column; /* Stack labels and dropdowns vertically */
+    gap: 10px; /* Add space between labels */
+  }
+
+  .chart-container {
+    padding: 10px; /* Reduce padding */
+    max-width: 80%; /* Allow chart to take full width on smaller screens */
+    margin: 0 auto; /* Center the container horizontally */
+    padding-right: 40px;
+  }
+
+  .chart-large {
+    width: 100%; /* Make chart container take full width */
+    overflow-x: auto; /* Allow horizontal scrolling */
+  }
+
+  .box {
+    height: 300px; /* Adjust box height for mobile */
+  }
+
+  .graph {
+    width: 100%; /* Make graph take full width */
+  }
+
+  canvas {
+    width: 100%; /* Ensure canvas scales correctly */
+  }
+}
+.year-container {
+  display: flex; /* Enables flexbox for horizontal alignment */
+  align-items: center; /* Aligns label and input vertically */
+  gap: 10px; /* Adds space between the label and the input field */
+}
+
+.year-options {
+  padding: 8px 20px; /* Adjusts padding for better input field spacing */
+  background-color: #fff;
+  border: 1px solid #969696;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 4px; /* Optional: Add rounded corners */
+  width: 40%;
+}
+
+@media (max-width: 480px) {
+  .dropdown-layout {
+    gap: 10px; /* Further reduce space between dropdowns */
+  }
+
+  .year-options {
+    padding: 8px 15px; /* Smaller padding */
+    font-size: 14px; /* Smaller font size */
+  }
+
+  .label-container {
+    gap: 5px; /* Reduce gap between labels */
+  }
+
+  .chart-container {
+    padding: 5px; /* Further reduce padding */
+    max-width: 80%;
+  }
+
+  .chart-large {
+    width: 100%; /* Make chart container take full width */
+  }
+
+  .box {
+    height: 200px; /* Further reduce height for smaller screens */
+  }
+}
+/* FORECASTING CHART ENDS */
