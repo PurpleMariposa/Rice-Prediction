@@ -70,19 +70,19 @@ setupChart();
 
 async function setupChart() {
   await getData(
-    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_premium_rice.csv?token=GHSAT0AAAAAADBHBXSJYIRMSY7EKS36BDXAZ7FBO4A",
+    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_premium_rice.csv",
     "premium"
   );
   await getData(
-    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_regular_milled_rice.csv?token=GHSAT0AAAAAADBHBXSJG7TE5H3V4PFJ6QM6Z7FBM6Q",
+    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_regular_milled_rice.csv",
     "regular"
   );
   await getData(
-    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_special_rice.csv?token=GHSAT0AAAAAADBHBXSJT3PUVMQZONQLMXYIZ7FBMPA",
+    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_special_rice.csv",
     "special"
   );
   await getData(
-    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_well_milled_rice.csv?token=GHSAT0AAAAAADBHBXSIVLKU4WMAZDMEXYNYZ7FBMDQ",
+    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_well_milled_rice.csv",
     "wellMilled"
   );
 
