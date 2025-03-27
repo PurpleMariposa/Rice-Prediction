@@ -95,10 +95,18 @@ const chartElement = document
 // Global chart variable
 let chart;
 
+// Initialize year input with current year and setup chart
+function initializeApplication() {
+  const currentYear = new Date().getFullYear();
+  inputElement.value = currentYear;
+  inputElement.min = currentYear; // Prevent selecting past years
+  setup(); // Initialize the chart with current year's data
+}
+
 // Fetch predictions JSON data
 async function fetchPredictions() {
   try {
-    showLoading(); // Show loading before fetching data
+    showLoading();
     const response = await fetch(
       `/static/predictions/rice_price_predictions.json?timestamp=${new Date().getTime()}`
     );
@@ -106,8 +114,9 @@ async function fetchPredictions() {
     return await response.json();
   } catch (error) {
     console.error("Error fetching predictions:", error);
+    return {}; // Return empty object on error
   } finally {
-    hideLoading(); // Hide loading after data is fetched
+    hideLoading();
   }
 }
 
@@ -115,13 +124,11 @@ function getYearlyPrices(data, year) {
   const yearlyPrices = {};
   Object.keys(data).forEach((riceType) => {
     if (data[riceType][year]) {
-      // Access the data for the given year
       yearlyPrices[riceType] = data[riceType][year].map((item) => ({
         month: item.month,
         price: item.price,
       }));
     } else {
-      // Handle missing years gracefully
       yearlyPrices[riceType] = [];
     }
   });
@@ -131,10 +138,10 @@ function getYearlyPrices(data, year) {
 // Initialize chart with datasets for each rice type
 function initializeChart(riceTypes) {
   const colors = {
-    regular: "rgba(54, 162, 235, 1)", // Regular
-    premium: "rgba(255, 99, 132, 1)", // Premium
-    special: "#dcf16f", // Special
-    well_milled: "rgba(153, 102, 255, 1)", // Well Milled
+    regular: "rgba(54, 162, 235, 1)",
+    premium: "rgba(255, 99, 132, 1)",
+    special: "#dcf16f",
+    well_milled: "rgba(153, 102, 255, 1)",
   };
 
   const datasets = riceTypes.map((riceType) => ({
@@ -174,12 +181,10 @@ function initializeChart(riceTypes) {
               const datasetIndex = tooltipItem.datasetIndex;
               const dataIndex = tooltipItem.dataIndex;
 
-              // Get prices for this month across all rice types
               const monthlyPrices = chart.data.datasets.map(
                 (dataset) => dataset.data[dataIndex]
               );
 
-              // Sort prices and get the evaluation labels
               const sortedPrices = [...monthlyPrices].sort((a, b) => b - a);
               const evaluationLabels = [
                 "VERY GOOD",
@@ -188,12 +193,10 @@ function initializeChart(riceTypes) {
                 "NOT GOOD",
               ];
 
-              // Find the evaluation label based on the sorted prices
               const price = monthlyPrices[datasetIndex];
               const rank = sortedPrices.indexOf(price);
               const evaluation = evaluationLabels[rank];
 
-              // Return only the evaluation label
               return evaluation;
             },
           },
@@ -203,7 +206,7 @@ function initializeChart(riceTypes) {
   });
 }
 
-// Update chart with selected year's data and add evaluations
+// Update chart with selected year's data
 function updateChart(chart, yearlyPrices) {
   const labels = yearlyPrices["regular"].map((item) => item.month);
   chart.data.labels = labels;
@@ -221,14 +224,16 @@ function updateChart(chart, yearlyPrices) {
 async function triggerPrediction(event) {
   if (event.key === "Enter") {
     const endYear = parseInt(inputElement.value);
-    if (!isNaN(endYear) && endYear >= new Date().getFullYear()) {
+    const currentYear = new Date().getFullYear();
+
+    if (!isNaN(endYear) && endYear >= currentYear) {
       showLoading();
-      await predictAllRiceTypes(endYear); // Call prediction function
-      await updateChartWithYear(endYear); // Update chart with new data
+      await predictAllRiceTypes(endYear);
+      await updateChartWithYear(endYear);
       hideLoading();
     } else {
       alert(
-        "Please enter a valid year greater than or equal to the current year."
+        `Please enter a valid year greater than or equal to ${currentYear}.`
       );
     }
   }
@@ -252,10 +257,10 @@ async function updateChartWithYear(year) {
 async function setup() {
   const data = await fetchPredictions();
   const riceTypes = Object.keys(data);
-  const currentYear = new Date().getFullYear();
+  const selectedYear = parseInt(inputElement.value); // Use the input value
 
   chart = initializeChart(riceTypes);
-  updateChartWithYear(currentYear);
+  updateChartWithYear(selectedYear);
 }
 
 // Backend API call to predict prices
@@ -275,20 +280,17 @@ async function predictAllRiceTypes(endYear) {
   }
 }
 
-// Get the loading container element
-const loadingContainer = document.getElementById("loading-container");
-
-// Show and hide loading container functions
+// Loading functions
 function showLoading() {
-  loadingContainer.style.visibility = "visible";
+  document.getElementById("loading-container").style.visibility = "visible";
 }
 
 function hideLoading() {
-  loadingContainer.style.visibility = "hidden";
+  document.getElementById("loading-container").style.visibility = "hidden";
 }
 
-// Run setup on load
-setup();
+// Initialize the application when DOM is loaded
+document.addEventListener("DOMContentLoaded", initializeApplication);
 
 // FORECAST CHART
 let myChart1, myChart2;

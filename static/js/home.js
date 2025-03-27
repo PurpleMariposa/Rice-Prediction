@@ -70,19 +70,19 @@ setupChart();
 
 async function setupChart() {
   await getData(
-    "https://raw.githubusercontent.com/Kristel-Salazar/Rice-Price-Prediction/7f3e6839e1043c7a9f5b143e2448519475afb29b/datasets/reduced_premium_rice.csv",
+    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_premium_rice.csv?token=GHSAT0AAAAAADBHBXSJYIRMSY7EKS36BDXAZ7FBO4A",
     "premium"
   );
   await getData(
-    "https://raw.githubusercontent.com/Kristel-Salazar/Rice-Price-Prediction/7f3e6839e1043c7a9f5b143e2448519475afb29b/datasets/reduced_regular_milled_rice.csv",
+    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_regular_milled_rice.csv?token=GHSAT0AAAAAADBHBXSJG7TE5H3V4PFJ6QM6Z7FBM6Q",
     "regular"
   );
   await getData(
-    "https://raw.githubusercontent.com/Kristel-Salazar/Rice-Price-Prediction/7f3e6839e1043c7a9f5b143e2448519475afb29b/datasets/reduced_special_rice.csv",
+    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_special_rice.csv?token=GHSAT0AAAAAADBHBXSJT3PUVMQZONQLMXYIZ7FBMPA",
     "special"
   );
   await getData(
-    "https://raw.githubusercontent.com/Kristel-Salazar/Rice-Price-Prediction/7f3e6839e1043c7a9f5b143e2448519475afb29b/datasets/reduced_well_milled_rice.csv",
+    "https://raw.githubusercontent.com/PurpleMariposa/Rice-Prediction/refs/heads/main/static/datasets/reduced_well_milled_rice.csv?token=GHSAT0AAAAAADBHBXSIVLKU4WMAZDMEXYNYZ7FBMDQ",
     "wellMilled"
   );
 
